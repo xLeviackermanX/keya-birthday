@@ -83,8 +83,21 @@ $(function () {
         images.push('images/keya' + (i < 10 ? '0' + i : i) + '.png');
     }
     var current = 0;
+    var loadToken = 0;
+    var preloaded = false;
     var $galleryImg = $('#gallery-img');
+    var $frame = $('#gallery-frame');
     $('#gallery-total').text(images.length);
+
+    // Preload every photo so switching is instant (files are large).
+    function preloadAll() {
+        if (preloaded) return;
+        preloaded = true;
+        images.forEach(function (src) {
+            var img = new Image();
+            img.src = src;
+        });
+    }
 
     function showScreen(id) {
         $('.screen').fadeOut(300);
@@ -92,12 +105,24 @@ $(function () {
     }
 
     function renderImage() {
-        $galleryImg.attr('src', images[current]);
+        var src = images[current];
+        var token = ++loadToken;
         $('#gallery-index').text(current + 1);
         $('#gallery-prev').prop('disabled', current === 0);
+        $galleryImg.stop(true).animate({ opacity: 0 }, 150);
+        $frame.addClass('loading');
+        var loader = new Image();
+        loader.onload = loader.onerror = function () {
+            if (token !== loadToken) return; // a newer navigation superseded this one
+            $galleryImg.attr('src', src);
+            $frame.removeClass('loading');
+            $galleryImg.stop(true).animate({ opacity: 1 }, 250);
+        };
+        loader.src = src;
     }
 
     $('#to-transition').click(function () {
+        preloadAll();
         showScreen('transition-screen');
     });
 

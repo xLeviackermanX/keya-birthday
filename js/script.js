@@ -11,7 +11,9 @@ if (c != null) {
     document.getElementById("nae").innerHTML = c;
 }
 $(".main").fadeOut(1);
-$('#play').click(function () {
+var PASSWORD = "hornyhojao69";
+
+function startCelebration() {
     $(".loader").fadeOut(1500);
     $(".main").fadeIn("slow");
     sf.destroy();
@@ -20,7 +22,25 @@ $('#play').click(function () {
     }, 8000);
     var audio = $('.song')[0];
     audio.play();
+}
 
+$('#play').click(function () {
+    var entered = $('#password').val();
+    if (entered === PASSWORD) {
+        startCelebration();
+    } else {
+        $('#pw-error').text('Wrong password — try again 🙈').addClass('show');
+        $('#password').val('').focus();
+    }
+});
+
+// Allow pressing Enter in the password field
+$('#password').on('keydown', function (e) {
+    if (e.key === 'Enter') {
+        $('#play').click();
+    }
+}).on('input', function () {
+    $('#pw-error').removeClass('show');
 });
 var typed = new Typed("#typed", {
     stringsElement: '#typed-strings',

@@ -1,14 +1,61 @@
 /* customizable snowflake styling */
-.loader button {
-    width: 50%;
-    height: 100px;
+.gate {
     position: fixed;
     left: 50%;
     top: 45%;
-    transform: translateY(-50%);
-    transform: translateX(-50%);
-    background: center no-repeat #fff;
+    transform: translate(-50%, -50%);
     z-index: 9999999999999999999999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 420px;
+}
+
+#password {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+    border-radius: .4em;
+    border: 1px solid #a55d07;
+    outline: none;
+    background: rgba(255, 255, 255, .95);
+    color: rgb(120, 50, 5);
+    letter-spacing: 1px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .3);
+}
+
+#password::placeholder {
+    color: #b08a5a;
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+.pw-error {
+    color: #ffd7d7;
+    background: rgba(160, 30, 40, .55);
+    font-size: 16px;
+    margin-top: 16px;
+    min-height: 1em;
+    padding: 0 12px;
+    border-radius: .3em;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .5);
+    opacity: 0;
+    transition: opacity .2s ease;
+}
+
+.pw-error.show {
+    opacity: 1;
+    padding: 8px 12px;
+}
+
+.loader button {
+    width: 100%;
+    height: 100px;
+    background: center no-repeat #fff;
     font-size: 50px;
     outline: none;
     box-sizing: border-box;

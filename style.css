@@ -127,3 +127,133 @@ img {
     position: absolute;
     padding-top: 250px;
 }
+
+/* ---- Shared navigation button (golden theme) ---- */
+.nav-btn {
+    font-size: 24px;
+    padding: 12px 34px;
+    margin: 10px;
+    border-radius: .4em;
+    cursor: pointer;
+    outline: none;
+    border: 1px solid #a55d07;
+    color: rgb(120, 50, 5);
+    text-transform: uppercase;
+    text-shadow: 0 2px 2px rgba(250, 227, 133, 1);
+    background-image: linear-gradient(160deg, #a54e07, #b47e11, #fef1a2, #bc881b, #a54e07);
+    background-size: 100% 100%;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(110, 80, 20, .4),
+        inset 0 -2px 5px 1px rgba(139, 66, 8, 1),
+        inset 0 -1px 1px 3px rgba(250, 227, 133, 1);
+    transition: all .2s ease-in-out;
+}
+
+.nav-btn:hover {
+    background-size: 150% 150%;
+}
+
+.nav-btn:disabled {
+    opacity: .4;
+    cursor: default;
+}
+
+.cake-next {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 99999999;
+}
+
+/* ---- Full-screen overlay screens ---- */
+.screen {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100000000;
+    background: linear-gradient(160deg, #2a0a3a, #5b1b6e, #c4515c);
+    overflow: auto;
+}
+
+.screen-inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 720px;
+    text-align: center;
+}
+
+.transition-text {
+    color: #fff;
+    font-size: 40px;
+    line-height: 1.4;
+    margin-bottom: 30px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, .4);
+}
+
+/* ---- Gallery ---- */
+.gallery-frame {
+    background: #fff;
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, .5);
+    display: inline-block;
+    max-width: 100%;
+}
+
+#gallery-img {
+    width: auto;
+    max-width: 100%;
+    max-height: 62vh;
+    border-radius: 6px;
+    display: block;
+}
+
+.gallery-counter {
+    color: #fff;
+    font-size: 20px;
+    margin: 14px 0;
+    letter-spacing: 2px;
+}
+
+/* ---- Letter ---- */
+.letter-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 640px;
+    background-image: linear-gradient(#fffdf7, #fdf3d8);
+    padding: 40px 42px;
+    border-radius: 14px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .55);
+    border: 1px solid #e6d9a8;
+    max-height: 86vh;
+    overflow: auto;
+    text-align: center;
+}
+
+.letter-title {
+    font-size: 34px;
+    color: #b0344f;
+    margin-bottom: 20px;
+}
+
+.letter-body {
+    font-size: 19px;
+    line-height: 1.7;
+    color: #4a3b2a;
+    text-align: left;
+    font-family: Georgia, 'Times New Roman', serif;
+    margin-bottom: 28px;
+}
+
+.letter-body p {
+    margin-bottom: 16px;
+}

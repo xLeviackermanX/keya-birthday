@@ -51,6 +51,42 @@
             </div>
         </div>
         <img src="img/Balloon-Border.png" width="100%" class="balloon-border">
+        <button id="to-transition" class="nav-btn cake-next">Next</button>
+    </div>
+
+    <!-- Transition screen -->
+    <div id="transition-screen" class="screen">
+        <div class="screen-inner">
+            <h1 class="transition-text">Get ready to read some old bad one-liners 😅</h1>
+            <button id="to-gallery" class="nav-btn">Let's go</button>
+        </div>
+    </div>
+
+    <!-- Image gallery screen -->
+    <div id="gallery-screen" class="screen">
+        <div class="screen-inner">
+            <div class="gallery-frame">
+                <img id="gallery-img" src="images/keya01.png" alt="">
+            </div>
+            <div class="gallery-counter"><span id="gallery-index">1</span> / <span id="gallery-total">14</span></div>
+            <div class="gallery-controls">
+                <button id="gallery-prev" class="nav-btn">Previous</button>
+                <button id="gallery-next" class="nav-btn">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Birthday letter screen -->
+    <div id="letter-screen" class="screen">
+        <div class="letter-card">
+            <h1 class="letter-title">A Letter For You 💌</h1>
+            <div class="letter-body" id="letter-body">
+                <p>Dear Keya,</p>
+                <p>[ Your letter goes here — we'll fill this in later. ]</p>
+                <p>With all my love,<br>Me</p>
+            </div>
+            <button id="letter-back" class="nav-btn">Back to photos</button>
+        </div>
     </div>
 </body>
 <script src="https://unpkg.com/magic-snowflakes/dist/snowflakes.min.js"></script>

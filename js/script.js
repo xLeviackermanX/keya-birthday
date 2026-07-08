@@ -76,6 +76,60 @@ var retina = window.devicePixelRatio,
     };
 }(window));
 
+// ---- Screen flow: cake -> transition -> photo gallery -> letter ----
+$(function () {
+    var images = [];
+    for (var i = 1; i <= 14; i++) {
+        images.push('images/keya' + (i < 10 ? '0' + i : i) + '.png');
+    }
+    var current = 0;
+    var $galleryImg = $('#gallery-img');
+    $('#gallery-total').text(images.length);
+
+    function showScreen(id) {
+        $('.screen').fadeOut(300);
+        $('#' + id).fadeIn(500);
+    }
+
+    function renderImage() {
+        $galleryImg.attr('src', images[current]);
+        $('#gallery-index').text(current + 1);
+        $('#gallery-prev').prop('disabled', current === 0);
+    }
+
+    $('#to-transition').click(function () {
+        showScreen('transition-screen');
+    });
+
+    $('#to-gallery').click(function () {
+        current = 0;
+        renderImage();
+        showScreen('gallery-screen');
+    });
+
+    $('#gallery-prev').click(function () {
+        if (current > 0) {
+            current--;
+            renderImage();
+        }
+    });
+
+    $('#gallery-next').click(function () {
+        if (current < images.length - 1) {
+            current++;
+            renderImage();
+        } else {
+            showScreen('letter-screen');
+        }
+    });
+
+    $('#letter-back').click(function () {
+        current = images.length - 1;
+        renderImage();
+        showScreen('gallery-screen');
+    });
+});
+
 document.addEventListener("DOMContentLoaded", function () {
     var speed = 50,
         duration = (1.0 / speed),
